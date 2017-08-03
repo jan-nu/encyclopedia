@@ -1,0 +1,18 @@
+.menu-button {
+	display: inline-block;
+	position: absolute;
+	width: 43px;
+	height: 43px;
+	background: url(../img/sprite.png) no-repeat 0 0;
+	top: 17px;
+	left: 28px;
+	z-index: 35;
+	cursor: pointer;
+	&.first-page {
+		top: 33px;
+		position: absolute;
+	}
+	&.open {
+		background: url(../img/sprite.png) no-repeat -53px 0;
+	}
+}

@@ -1,0 +1,211 @@
+.menu {
+	&:after {
+		content: '';
+		position: absolute;
+		z-index: 20;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		width: 8px;
+		background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,.2) 100%);
+	}
+	&__list {
+		padding-top: 30px;
+	}
+	&__item {	}
+	&__link {
+		cursor: default;
+	}
+	&__chapter {
+		display: block;
+		font: 400 18px/24px "Robobo", sans-serif;
+		color: #333333;
+	}
+	&__caption {
+		text-transform: uppercase;
+		font: 700 18px/22px "Robobo", sans-serif;
+		color: #333333;
+		display: inline-block;
+		border-bottom: 1px dotted rgba(#333333, .5);
+		transition: all .3s;
+		cursor: pointer;
+		&:hover {
+			border-bottom: 1px dotted transparent;
+		}
+	}
+	&__submenu {
+		line-height: 0;
+		font-size: 0;
+	}
+	&__subitem {
+		color: $violet;
+		font: 400 17px/21px "Roboto", sans-serif;
+		text-decoration: underline;
+		transition: all .3s;
+		padding: 16px 0 !important;
+		&.active, &:hover {
+			font-weight: 700;
+			text-decoration: none;
+			.menu__sublink {
+				border-left: 1px solid $violet;
+			}
+		}
+	}
+	&__sublink {
+		border-left: 1px solid transparent;
+	}
+}
+
+.mm-panels {
+	>.mm-panel {
+		background: url(../img/memo-bg.jpg) no-repeat center;
+		background-size: cover;
+	}
+}
+.mm-navbar {
+	background-color: #fff;
+	height: 80px;
+	line-height: 80px;
+	padding: 0 27px;
+	border: none;
+	.mm-title {
+		text-align: left;
+		text-transform: uppercase;
+		font: 800 21px/80px "Roboto", sans-serif;
+		color: #333333 !important;
+		padding: 0;
+	}
+} 
+.mm-panels>.mm-panel>.mm-listview:first-child, .mm-panels>.mm-panel>.mm-navbar+.mm-listview {
+	margin-top: 20px;
+}
+.mm-listview>li:not(.mm-divider):after {
+	display: none;
+}
+.mm-listview .mm-next:before {
+	display: none;
+}
+.mm-listview>li>a, .mm-listview>li>span {
+	white-space: normal;
+}
+.mm-menu .mm-listview {
+	border: none;
+}
+.mm-menu .mm-listview>li.mm-opened.mm-vertical>.mm-panel, .mm-menu .mm-listview>li.mm-opened.mm-vertical>a.mm-next, .mm-menu.mm-vertical .mm-listview>li.mm-opened>.mm-panel, .mm-menu.mm-vertical .mm-listview>li.mm-opened>a.mm-next {
+	background: none;
+}
+.mm-listview .mm-next {
+	display: none;
+}
+.mm-listview .mm-vertical .menu__item .mm-panel, 
+.mm-vertical .mm-listview .menu__item .mm-panel {
+	padding: 9px 40px 10px 31px;
+}
+.mm-listview>li>a.menu__link{
+	padding: 15px 28px 15px 28px;
+}
+.mm-listview>li>a.menu__sublink {
+	padding: 0 0 0 32px;
+}
+.mm-listview .mm-next+a, .mm-listview .mm-next+span {
+	margin-right: 0;
+}
+.mm-menu.mm-offcanvas {
+	max-width: 430px;
+}
+.mm-menu .mm-listview>li.mm-selected>a:not(.mm-next), .mm-menu .mm-listview>li.mm-selected>span {
+	background: none;
+}
+@media only screen and (min-width: 550px) {
+	html.mm-opening .mm-menu~.mm-slideout {
+		transform: translate3d(430px,0,0);
+	}
+}
+@media only screen and (max-width: 576px) {
+	.mm-menu.mm-offcanvas {
+		max-width: 80%;
+	}
+}
+
+
+#fp-nav.right {
+	right: 27px;
+	top: 210px;
+	margin-top: 0 !important;
+	transition: right .4s ease;
+	display: none;
+	&.beyond {
+		right: -300px;
+	}
+}
+#fp-nav ul li, 
+.fp-slidesNav ul li {
+	width: 29px;
+	height: 29px;
+	margin: 18px;
+	&:first-child {
+		display: none;
+	}
+}
+#fp-nav ul li a span, 
+.fp-slidesNav ul li a span {
+	width: 25px;
+	height: 25px;
+	text-align: center;
+	color: #272727;
+	font: 700 17px/25px "Roboto", sans-serif;
+	margin: 0;
+	left: 0;
+	top: 0;
+	background: #fff;
+	border: 2px solid #fff;
+	transition: all .3s ease-in-out;
+}
+#fp-nav ul li a.active span, 
+#fp-nav ul li:hover a.active span, 
+.fp-slidesNav ul li a.active span, 
+.fp-slidesNav ul li:hover a.active span {
+	width: 25px;
+	height: 25px;
+	line-height: 25px;
+	margin: 0;
+	color: #fff;
+	background: $violet;
+	border: 2px solid #fff;
+}
+#fp-nav ul li:hover a span, 
+.fp-slidesNav ul li:hover a span {
+	width: 25px;
+	height: 25px;
+	margin: 0;
+	background: $violet;
+	border: 2px solid #fff;
+	color: #fff;
+}
+#fp-nav ul li .fp-tooltip {
+	top: 0px;
+}
+#fp-nav ul li .fp-tooltip.right {
+	right: 58px;
+	background-color: #fff;
+	color: #333333;
+	font: 400 17px/29px "Roboto Condensed", sans-serif;
+	padding: 0 16px 0 9px;
+	overflow: visible;
+	&:after {
+		content: '';
+		position: absolute;
+		left: 100%;
+		top: 0;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 14.5px 0 14.5px 13px;
+		border-color: transparent transparent transparent #fff;
+	}
+}
+@media only screen and (max-width: 576px) {
+	#fp-nav.right {
+		right: 8px;
+	}
+}
